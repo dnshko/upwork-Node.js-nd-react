@@ -12,14 +12,14 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(async (config) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('user');
     config.headers.Authorization = (token ? token : '');
     config.headers.ContentType = 'application/json';
     return config;
 });
 
 export const getAll = async () => (
-    await instance.post('users/all')
+    await instance.post('GetPlayerDetails')
 );
 
 export const register = async (name, email, password, phone, agency, role) => (
@@ -38,8 +38,8 @@ export const confirmReset = async (id, password) => (
     await instance.post(`users/resetpass/${id}`, {password})
 );
 
-export const login = async (email, password) => (
-    await instance.post('users/login', {email, password})
+export const login = async (EmailId, Password) => (
+    await instance.post('AdminLogin', {EmailId, Password})
 );
 
 export const logout = async token => (

@@ -18,7 +18,8 @@ var util = require('util');
 var multer = require('multer');
 const Cryptr = require('cryptr');
 var crypto = require('crypto');
-app.use(express.static('public'));
+var cors = require('cors');
+app.use(cors());
 const { body, validationResult } = require('express-validator');
 const algorithm = 'aes-256-cbc';
 
@@ -824,8 +825,8 @@ function getVerifiedStatusById(id,callback)
 
         app.get(
           '/GetPlayerDetails',
-          body('session_token').notEmpty()
-          .withMessage('session token should not be empty'),
+          // body('session_token').notEmpty()
+          // .withMessage('session token should not be empty'),
      
   /*
           body('_id').notEmpty()
@@ -843,6 +844,7 @@ function getVerifiedStatusById(id,callback)
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
               console.log(errors.array()[0].param);
+              console.log("testing")
              
               //errorMessage(errors.array()[0].param)
               return res.status(401).json(errorMessage(errors.array()[0].param,errors.array()[0].msg));
@@ -893,7 +895,7 @@ function getVerifiedStatusById(id,callback)
           console.log(token);
          
          
-          var playerid= req.body['_id'];
+          var playerid= 1;
 
           //var mobile = req.body['MobileNumber'];
          // var dor = req.body['DateOfRegistration'];
@@ -933,12 +935,13 @@ var userMap=[];
                     //{ 
                        var dbsession_token= datad.sessionToken;
 
-                      //  console.log(dbsession_token);
-                      //  console.log("----");
-
-                        //console.log(token);
+                       console.log(dbsession_token);
+                       console.log("----");
+                       console.log("testing 2");
+                        console.log("datad",datad)
+                        console.log(token);
                         
-                        if(dbsession_token==token){
+                        // if(dbsession_token==token){
 
                        
                         var obj =  {
@@ -949,32 +952,32 @@ var userMap=[];
 //"MobileNumber":datadu.mobile,
 
                          
-                                      "DriverName":datad.driverName,
-                                       "TruckNumber":datad.truckNumber,
-                                      "BankName":datad.bankName,
-                                       "BankAccountNumber":datad.accountNumber,
-                                       "IFSCCode":datad.ifscCode,
-                                        "Branch":datad.bankBranch,
-                                      "ChequeImage":datad.chequeImage,
-                                      "DLPhoto":datad.dlPhoto,
+                                      "DriverName":datad.driver_name,
+                                       "TruckNumber":datad.truck_number,
+                                      "BankName":datad.bank_name,
+                                       "BankAccountNumber":datad.bank_account,
+                                       "IFSCCode":datad.ifscode,
+                                        "Branch":datad.branch,
+                                      "ChequeImage":datad.CkeckfileName,
+                                      "DLPhoto":datad.DLfileName,
                                       "_id":datad._id,
-                                      "Isverfifed":  
-                                      getVerifiedStatusById(datad.driverId, function(response){
+                                      // "Isverfifed":  
+                                      // getVerifiedStatusById(datad.user_id, function(response){
                                         // Here you have access to your variable
-                                        console.log(response);
-                                    })
+                                        // console.log(response);
+                                    // })
 
                         }
                       
                       
                        
                         userMap.push(obj);
-                      }
-                      else
-                      {
-                        return res.status(401).json({ "Data":{"":''},"Status":{"Code":401,"message":"Authentication falied"} });
+                      // }
+                      // else
+                      // {
+                      //   return res.status(401).json({ "Data":{"":''},"Status":{"Code":401,"message":"Authentication falied"} });
            
-                      }
+                      // }
                         
                    // } ); 
                        

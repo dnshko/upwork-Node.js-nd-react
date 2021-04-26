@@ -1,0 +1,9 @@
+
+{
+    "_id": {
+        "$oid": "608532f2c8d391ea19969d95"
+    },
+    "session_token": "123456",
+    "email": "test@gmail.com",
+    "password": "94bb07d0181ee205543df0e3dde9b838"
+}

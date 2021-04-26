@@ -1,0 +1,10 @@
+{
+    "_id": {
+        "$oid": "60861db2244d802c3446d391"
+    },
+    "mobile": "298b316240d2ab8545878ea37730fd1e",
+    "isVerified": true,
+    "hasSubmittedDetails": true,
+    "session_token": "MzGy7xpmT3Giyz2b",
+    "created_at": 1619402162393
+}

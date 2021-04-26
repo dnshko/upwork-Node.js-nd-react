@@ -1,0 +1,18 @@
+{
+    "_id": {
+        "$oid": "60861de0244d802c3446d393"
+    },
+    "user_id": "60861db2244d802c3446d391",
+    "driver_name": "sameer",
+    "truck_number": "MP 09 1234",
+    "dl_number": "hidansweryour1Q1",
+    "name": "sameer",
+    "bank_name": "Axis",
+    "bank_account": "012346",
+    "ifscode": "SBIN0005943",
+    "branch": "Gopur",
+    "CkeckfileName": "check1619402207754.png",
+    "DLfileName": "DL1619402207981.png",
+    "created_at": 1619402208219,
+    "updated_at": 1619402208220
+}
